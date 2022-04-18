@@ -16,8 +16,6 @@ let webcam_output;
 let poseNet;
 // output of our ML model is stores in this
 let poses = [];
-// direction that the player is currently moving
-let isMoving = null;
 
 /* function setup() is by P5.js:
       it is the first function that is executed and runs only once.
