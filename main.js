@@ -185,28 +185,26 @@ function drawGuides() {
 
 // Function to detect whether player wants to input a movement
 function checkMove(pose) {
-  if(isMoving == null){
-    currentBodyPart1 = pose['rightShoulder']
-    if(currentBodyPart1['confidence'] > 0.7  && currentBodyPart1['x'] < 150){
-      moveRight()
-    }
+  currentBodyPart1 = pose['rightShoulder']
+  if(currentBodyPart1['confidence'] > 0.7  && currentBodyPart1['x'] < 150){
+    moveRight()
+  }
 
-    currentBodyPart2 = pose['leftShoulder']
-    if(currentBodyPart2['confidence'] > 0.7  && currentBodyPart2['x'] > 490){
-      moveLeft()
-    }
+  currentBodyPart2 = pose['leftShoulder']
+  if(currentBodyPart2['confidence'] > 0.7  && currentBodyPart2['x'] > 490){
+    moveLeft()
+  }
 
-    if((  currentBodyPart1['confidence'] > 0.7  && isWithin(currentBodyPart1, 150, 340, 380, 480)  ) ||
-       (  currentBodyPart2['confidence'] > 0.7  && isWithin(currentBodyPart2, 150, 340, 380, 480)  )) {
-        moveDown()
-    }
+  if((  currentBodyPart1['confidence'] > 0.7  && isWithin(currentBodyPart1, 150, 340, 380, 480)  ) ||
+      (  currentBodyPart2['confidence'] > 0.7  && isWithin(currentBodyPart2, 150, 340, 380, 480)  )) {
+      moveDown()
+  }
 
-    currentBodyPart1 = pose['leftWrist']
-    currentBodyPart2 = pose['rightWrist']
-    if((  currentBodyPart1['confidence'] > 0.7  && isWithin(currentBodyPart1, 150, 340, 0, 100)  ) ||
-       (  currentBodyPart2['confidence'] > 0.7  && isWithin(currentBodyPart2, 150, 340, 0, 100)  )) {
-        moveUp()
-    }
+  currentBodyPart1 = pose['leftWrist']
+  currentBodyPart2 = pose['rightWrist']
+  if((  currentBodyPart1['confidence'] > 0.7  && isWithin(currentBodyPart1, 150, 340, 0, 100)  ) ||
+      (  currentBodyPart2['confidence'] > 0.7  && isWithin(currentBodyPart2, 150, 340, 0, 100)  )) {
+      moveUp()
   }
 }
 
